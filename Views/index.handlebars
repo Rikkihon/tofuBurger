@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-center" id="top-bar">
-			<img src="./assets/img/Tofu.png" alt="tofu" />
-			<h1> Vegetarians United </h1>
+			<h1> Vegetarians Forever! </h1>
 		</div>
+		<img src="./assets/img/Tofu.png" alt="tofu" />
 		<div class="col-md-6 text-center" class="task">
 			<div class="row">
 			  {{#each tofu_data}}
@@ -13,11 +13,12 @@
 					</pre>
 				  		<!-- {{this.Date}} -->
 				</div>
-			
-					  <form action="/tofu/{{this.id}}?_method=PUT" method="POST">
-          <button type="submit" class='tofuAvailable btn btn-default'>Gently Chew</button>
-        </form>
-				{{!-- </div> --}}
+				<div class="col-md-3 text-center">
+					<form class="devour-form button-size">
+						<input class="tofu_id" type="text" value={{this.id}}><br>
+						<button type="submit" class="btn btn-default">Devour it!</button>
+					</form>
+				</div>
 				{{/unless}}
 			  {{/each}}
 			</div>
@@ -39,7 +40,7 @@
 				<input type="text" class="form-control" name="tofu_name" value="" id="enter_text">
 				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
 			</form>
-			<p>Enter a vegetarian entree you want to eat. Click the "Submit" button.</p>
+			<p>Enter the Vegetarian Item you want to deour. Then, Click the "Submit" button.</p>
 		</div>
 	</div>
 </div>

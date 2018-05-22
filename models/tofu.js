@@ -6,18 +6,20 @@ var tofu = {
       cb(res);
     });
   },
-  create: function(cols, vals, cb) {
-    orm.create("tofu", cols, vals, function(res) {
-      cb(res);
-    });
+  create: function(name, cb) {
+    orm.create("tofu", [
+      "tofu_name", "devoured"
+    ], [
+      name, false
+    ], cb);
   },
-  update: function(objColVals, condition, cb) {
-    orm.update("tofu", objColVals, condition, function(res) {
-      cb(res);
-    });
-}
+  update: function(id, cb) {
+    var condition = "id=" + id;
+    orm.update("tofu", {
+      devoured: true
+    }, condition, cb);
+  }
 };
 
-
-
 module.exports = tofu;
+
