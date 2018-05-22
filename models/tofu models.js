@@ -1,24 +1,24 @@
 var orm = require("../config/orm.js");
 
-var burger = {
+var tofu = {
   all: function(cb) {
-    orm.all("burgers", function(res) {
-      cb(res);
+    orm.all("tofu", function(res) {
+      callback(res);
     });
   },
   create: function(name, cb) {
-    orm.create("burgers", [
-      "burger_name", "devoured"
+    orm.create("tofu", [
+      "tofu_name", "eaten delicately"
     ], [
       name, false
-    ], cb);
+    ], callback);
   },
   update: function(id, cb) {
     var condition = "id=" + id;
-    orm.update("burgers", {
+    orm.update("tofu", {
       devoured: true
-    }, condition, cb);
+    }, condition, callback);
   }
 };
 
-module.exports = burger;
+module.exports = tofu;

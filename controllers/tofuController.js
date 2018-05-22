@@ -1,40 +1,42 @@
 var express = require("express");
 
 var router = express.Router();
-var burger = require("../models/burger.js");
+var tofu = require("../models/tofu.js");
 
 // get route -> index
-router.get("/", function(req, res) {
-  res.redirect("/burgers");
-});
+// router.get("/", function(req, res) {
+//   res.redirect("/tofu");
+// });
 
-router.get("/burgers", function(req, res) {
+router.get("/tofu", function(req, res) {
   // express callback response by calling burger.selectAllBurger
-  burger.all(function(burgerData) {
+  tofu.all(function(tofuData) {
     // wrapper for orm.js that using MySQL query callback will return burger_data, render to index with handlebar
-    res.render("index", { burger_data: burgerData });
+    res.render("index", { tofu_data: tofuData });
   });
 });
 
 // post route -> back to index
-router.post("/burgers/create", function(req, res) {
+router.post("/tofu/create", function(req, res) {
+  console.log(req.body)
   // takes the request object using it as input for burger.addBurger
-  burger.create(req.body.burger_name, function(result) {
+  tofu.create(['tofu_name'],[req.body.tofu_name] ,function(result) {
     // wrapper for orm.js that using MySQL insert callback will return a log to console,
     // render back to index with handle
     console.log(result);
-    res.redirect("/");
+    res.redirect("/tofu");
   });
 });
 
 // put route -> back to index
-router.put("/burgers/:id", function(req, res) {
-  burger.update(req.params.id, function(result) {
+router.put("/tofu/:id", function(req, res) {
+  var condition="id = " + req.params.id;
+  tofu.update({devoured:true},condition,function(result) {
     // wrapper for orm.js that using MySQL update callback will return a log to console,
     // render back to index with handle
     console.log(result);
+    res.redirect('/tofu')
     // Send back response and let page reload from .then in Ajax
-    res.sendStatus(200);
   });
 });
 

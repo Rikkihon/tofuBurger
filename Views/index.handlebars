@@ -1,0 +1,45 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center" id="top-bar">
+			<img src="./assets/img/Tofu.png" alt="tofu" />
+			<h1> Vegetarians United </h1>
+		</div>
+		<div class="col-md-6 text-center" class="task">
+			<div class="row">
+			  {{#each tofu_data}}
+			  	{{#unless this.devoured}}
+				<div class="col-md-9 text-center">
+					<pre>{{this.id}}. {{this.tofu_name}}
+					</pre>
+				  		<!-- {{this.Date}} -->
+				</div>
+			
+					  <form action="/tofu/{{this.id}}?_method=PUT" method="POST">
+          <button type="submit" class='tofuAvailable btn btn-default'>Gently Chew</button>
+        </form>
+				{{!-- </div> --}}
+				{{/unless}}
+			  {{/each}}
+			</div>
+		</div>
+		<div class="col-md-6 text-center" class="task">
+			  {{#each tofu_data}}
+			  	{{#if this.devoured}}
+			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.tofu_name}}" readonly>
+				{{/if}}
+			  {{/each}}
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center enter_section">
+			<form action="/tofu/create" method="POST">
+				<input type="text" class="form-control" name="tofu_name" value="" id="enter_text">
+				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+			</form>
+			<p>Enter a vegetarian entree you want to eat. Click the "Submit" button.</p>
+		</div>
+	</div>
+</div>

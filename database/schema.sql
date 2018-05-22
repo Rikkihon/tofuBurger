@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS tofu;
 -- Create the burgers table
 CREATE TABLE tofu (
     id int NOT NULL AUTO_INCREMENT,
-    burger_name varchar(255) NOT NULL,
+    tofu_name varchar(255) NOT NULL,
     devoured BOOL DEFAULT false,
     PRIMARY KEY (id)
 );
