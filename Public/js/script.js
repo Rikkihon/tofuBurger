@@ -26,26 +26,26 @@ $(document).ready(function() {
      
 //     };
 
-//     // Send the POST request.
-//     $.ajax("/api/tofu", {
-//       type: "POST",
-//       data: newTofu
-//     }).then(
-//       function() {
-//         console.log("created new tofu");
-//         // Reload the page to get the updated list
-//         location.reload();
-//       }
+    // Send the POST request.
+    $.ajax("/api/tofu", {
+      type: "POST",
+      data: newTofu
+    }).then(
+      function() {
+        console.log("created new tofu");
+        // Reload the page to get the updated list
+        location.reload();
+      }
   
-//   )
-// })
+  )
+
 
 
 $(".delete-tofu").on("click", function(event) {
   var id = $(this).data("id");
 
   // Send the DELETE request.
-  $.ajax("/api/tofu/" + id, {
+  $.ajax("/tofu/delete" + id, {
     type: "DELETE"
   }).then(
     function() {
