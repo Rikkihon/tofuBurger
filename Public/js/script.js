@@ -45,7 +45,7 @@ $(".delete-tofu").on("click", function(event) {
   var id = $(this).data("id");
 
   // Send the DELETE request.
-  $.ajax("/tofu/delete" + id, {
+  $.ajax("/api/tofu/" + id, {
     type: "DELETE"
   }).then(
     function() {

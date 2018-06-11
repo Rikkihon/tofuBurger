@@ -69,7 +69,23 @@ var orm = {
       }
       cb(result);
     });
+  },
+// need to ask the tutor about this 
+  delete: function(table, condition, cb) {
+    var queryString = "DELETE FROM " + table;
+    queryString += " WHERE ";
+    queryString += id = 
+    queryString += "id#"
+
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    });
   }
-};
+}
+
 
 module.exports = orm;

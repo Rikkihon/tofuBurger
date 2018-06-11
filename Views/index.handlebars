@@ -28,8 +28,8 @@
 			  	{{#if this.devoured}}
 			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.tofu_name}}" readonly>
 					  <div>
-                       <form action="/tofu/delete" method="DELTE">
-				<button type="submit" class="btn btn-primary" id="text-enter-button">Delete</button>
+                       <form action="/api/tofu/" method="DELETE">
+				<button data-id="{{this.id}}" type="submit" class="btn btn-primary" id="text-enter-button">Delete</button>
 			</form>
 </div>
 				{{/if}}
@@ -50,8 +50,3 @@
 	</div>
 </div>
 <div>
-<form action="/tofu/delete" method="DELTE">
-				<input type="text" class="form-control" name="tofu_name" value="" id="enter_text">
-				<button type="submit" class="btn btn-primary" id="text-enter-button">Delete</button>
-			</form>
-</div>
