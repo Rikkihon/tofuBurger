@@ -22,6 +22,10 @@ app.set("view engine", "handlebars");
 var routes = require("./controllers/tofuController.js");
 
 app.use(routes);
+app.use("/cors/*", function(req, res) {
+  req.pipe(request(req.params[0])).pipe(res);
+});
+
 
 app.listen(PORT, function() {
   console.log("Listening on port:%s", PORT);
