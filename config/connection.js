@@ -6,7 +6,7 @@ if(process.env.JAWSDB_URL){
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "danito66$",
+  password: "",
   database: "tofu_db"
 });
 };
