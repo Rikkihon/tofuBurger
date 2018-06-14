@@ -35,18 +35,14 @@ router.put("/tofu/:id", function(req, res) {
 });
 
 
-router.delete("/api/tofu/", function(req, res) {
-  console.log("Test to see if this appears")
-  var condition = "id = " + req.params.id;
-  
-  tofu.delete(condition, function(result) {
-    if (result.affectedRows == 0) {
-    } else {
-      res.status(200).end();
-    }
-  });
+router.delete("/api/tofu/:id", function(req, res) {
+  console.log(req.params.id)
+  tofu.delete(req.params.id), function(){
+    res.redirect("/")
+  };
 });
-
+    
+  
 
 
 module.exports = router;

@@ -19,10 +19,10 @@ var tofu = {
       devoured: true
     }, condition, cb);
   },
-  deleteOne: function(table, condition, conditionVal, callback){
-    var queryString = 'DELETE FROM  tofu_db WHERE id =' + req.params.id;
+  delete: function(table, id, callback){
+    var queryString = 'DELETE FROM tofu WHERE id =' + id;
 
-    connection.query(queryString, [conditionVal], function(err, data){
+    orm.delete(queryString, function(err, data){
       if(err) throw err;
       callback(data);
     });

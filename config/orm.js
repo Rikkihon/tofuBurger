@@ -1,5 +1,6 @@
 var connection = require("./connection.js");
 
+
 function printQuestionMarks(num) {
   var arr = [];
 
@@ -24,6 +25,7 @@ function objToSql(ob) {
 var orm = {
   all: function(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
+    console.log(tableInput);
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -71,18 +73,14 @@ var orm = {
     });
   },
 // need to ask the tutor about this 
-  delete: function(table, condition, cb) {
-    var queryString = "DELETE FROM " + table;
-    queryString += " WHERE ";
-    queryString += id = 
-    queryString += "id#"
-
+  delete: function(id,  cb) {
+    console.log("You got here");
+    var queryString = "DELETE FROM tofu_db.tofu WHERE id = 2";
+    
+    
     connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
-
-      cb(result);
+      if (err) throw err;
+     cb(result);
     });
   }
 }
