@@ -73,9 +73,9 @@ var orm = {
     });
   },
 // need to ask the tutor about this 
-  delete: function(id,  cb) {
+  delete: function(id, cb) {
     console.log("You got here");
-    var queryString = "DELETE FROM tofu_db.tofu WHERE id = 2";
+    var queryString = "DELETE FROM tofu WHERE id = 2" + id ;
     
     
     connection.query(queryString, function(err, result) {
