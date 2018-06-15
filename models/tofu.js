@@ -19,10 +19,10 @@ var tofu = {
       devoured: true
     }, condition, cb);
   },
-  delete: function(table, id, callback){
+  delete: function(id, callback){
     var queryString = 'DELETE FROM tofu WHERE id =' + id;
 
-    orm.delete(queryString, function(err, data){
+    orm.delete(id, function(err, data){
       if(err) throw err;
       callback(data);
     });

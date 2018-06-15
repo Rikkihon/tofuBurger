@@ -36,7 +36,7 @@ router.put("/tofu/:id", function(req, res) {
 
 
 router.delete("/api/tofu/:id", function(req, res) {
-  console.log(req.params.id)
+  console.log("This is req.params.id" + req.params.id);
   tofu.delete(req.params.id), function(result){
     console.log(result);
     res.redirect("/")

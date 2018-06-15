@@ -43,7 +43,7 @@ $(document).ready(function() {
 
 $(".delete").on("click", function(event) {
   var id = $(this).data("id");
-console.log("Can I see this?")
+console.log("Can I see this?");
   // Send the DELETE request.
   $.ajax("/api/tofu/" + id, {
     type: "DELETE"

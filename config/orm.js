@@ -72,10 +72,11 @@ var orm = {
       cb(result);
     });
   },
-// need to ask the tutor about this 
+// need to ask the tutor about this g
   delete: function(id, cb) {
     console.log("You got here");
-    var queryString = "DELETE FROM tofu WHERE id = 2" + id ;
+    console.log("This should show you the id " + id);
+    var queryString = `DELETE FROM tofu WHERE id=${id}`  ;
     
     
     connection.query(queryString, function(err, result) {
