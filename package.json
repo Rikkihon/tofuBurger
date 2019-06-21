@@ -1,9 +1,9 @@
 {
-  "name": "Tofu Eater",
+  "name": "TofuBurger",
   "version": "1.0.0",
   "description": "-Node8.1.11 \r -Express \r -MySQL \r -Handlebars \r -Jquery",
   "main": "server.js",
-   "engines": "node 8.1.11",
+   "engines": "node 8.11.1",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
