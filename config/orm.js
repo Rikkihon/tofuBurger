@@ -81,6 +81,7 @@ var orm = {
     
     connection.query(queryString, function(err, result) {
       if (err) throw err;
+      console.log("This should be the errors", err);
      cb(result);
     });
   }
