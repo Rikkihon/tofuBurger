@@ -1,6 +1,6 @@
-var express = require("express");
-var router = express.Router();
-var tofu = require("../models/tofu.js");
+let express = require("express");
+let router = express.Router();
+let tofu = require("../models/tofu.js");
 
 // get route -> index
 router.get("/", function(req, res) {
