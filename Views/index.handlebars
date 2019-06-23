@@ -16,18 +16,19 @@
 				<div class="col-md-3 text-center">
 					<form class="devour-form button-size">
 						<input class="tofu_id" type="text" value={{this.id}}><br>
-						<button type="submit" class="btn btn-default">Devour it!</button>
+						<button type="submit" id="ca" class="btn btn-default">Devour it!</button>
 					</form>
 				</div>
 				{{/unless}}
 			  {{/each}}
 			</div>
 		</div>
-		<div class="col-md-6 text-center" class="task">
+		<div class="col-md-6 text-center" class="task"></div><h1> Previously Devoured Foods</h1>
 			  {{#each tofu_data}}
 			  	{{#if this.devoured}}
+				  
 			  		<div class="food" type="text"> {{this.tofu_name}}
-			        <button data-id="{{this.id}}"class="btn btn-primary delete" id="text-enter-button">Delete</button>
+			        <button data-id="{{this.id}}"class="btn btn-primary delete" id="delete-button">Delete</button>
                     </div>
 				{{/if}}
 			  {{/each}}
@@ -38,7 +39,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-center enter_section">
-			<form action="/tofu/create" method="POST">
+			<form action="/api/tofu/create" method="POST">
 				<input type="text" class="form-control" name="tofu_name" value="" id="enter_text">
 				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
 			</form>

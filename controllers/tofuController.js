@@ -1,6 +1,6 @@
-let express = require("express");
-let router = express.Router();
-let tofu = require("../models/tofu.js");
+var express = require("express");
+var router = express.Router();
+var tofu = require("../models/tofu.js");
 
 // get route -> index
 router.get("/", function(req, res) {
@@ -15,7 +15,7 @@ router.get("/tofu", function(req, res) {
 });
 
 // post route -> back to index
-router.post("/tofu/create", function(req, res) {
+router.post("/api/tofu/create", function(req, res) {
     console.log(req.body)
   // takes the request object using it as input for tofu.addtofu
   tofu.create(req.body.tofu_name, function(result) {
@@ -29,13 +29,13 @@ router.post("/tofu/create", function(req, res) {
 // put route -> back to index
 router.put("/tofu/:id", function(req, res) {
   tofu.update(req.params.id, function(result) { 
-    console.log(result);
+    console.log("the result is: " + result);
     res.sendStatus(200);
   });
 });
 
 
-router.delete("/api/tofu/:id", function(req, res) {
+router.delete("/tofu/:id", function(req, res) {
   console.log("This is req.params.id" + req.params.id);
   tofu.delete(req.params.id), function(result){
     console.log(result);

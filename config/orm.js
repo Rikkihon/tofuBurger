@@ -44,8 +44,9 @@ var orm = {
     queryString += "VALUES (";
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
-
-    console.log(queryString);
+    
+    console.log("table" + table);
+    console.log("queryString" + queryString);
 
     connection.query(queryString, vals, function(err, result) {
       if (err) {
@@ -72,11 +73,11 @@ var orm = {
       cb(result);
     });
   },
-// need to ask the tutor about this g
+
   delete: function(id, cb) {
     console.log("You got here");
     console.log("This should show you the id " + id);
-    var queryString = `DELETE FROM tofu WHERE id=${id}`  ;
+    let queryString = `DELETE FROM tofu WHERE id=${id}`  ;
     
     
     connection.query(queryString, function(err, result) {

@@ -16,37 +16,41 @@ $(document).ready(function() {
   });
 });
 
-//   $(".devour-form").on("click", function(event) {
-//   //was on submit, but I changed it
-//     // Make sure to preventDefault on a submit event.
-//     event.preventDefault();
+  $(".devour-form").on("submit", function(event) {
+  //was on submit, but I changed it
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
 
-//     var newTofu = {
-//       tofu_name: $("#ca").val().trim()
-     
-//     };
+    var newTofu = {
+      tofu_name: $("#ca").val().trim()
+    };
+    console.log(newTofu)
 
-    // Send the POST request.
-  //   $.ajax("/api/tofu", {
-  //     type: "POST",
-  //     data: newTofu
-  //   }).then(
-  //     function() {
-  //       console.log("created new tofu");
-  //       // Reload the page to get the updated list
-  //       location.reload();
-  //     }
+    //Send the POST request.
+    $.ajax("/api/tofu/create", {
+      type: "POST",
+      data: newTofu
+    }).then(
+      function() {
+        console.log("created new tofu");
+        // Reload the page to get the updated list
+        location.reload();
+      }
   
-  // )
+  )
 
 
 
-$(".delete").on("click", function(event) {
+$("#delete-button").on("click", function(event) {
   var id = $(this).data("id");
-console.log("Can I see this?");
+
+console.log("Can I see this?"+ id );
+
   // Send the DELETE request.
+
   $.ajax("/api/tofu/" + id, {
-    type: "DELETE"
+    type: "DELETE",
+    data: id
   }).then(
     function() {
       console.log("deleted tasty food", id);
@@ -54,12 +58,5 @@ console.log("Can I see this?");
       location.reload();
     }
   );
+ });
 });
-
-
-
-
-
-
-
-
