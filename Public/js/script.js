@@ -40,14 +40,13 @@ $(document).ready(function() {
   
   )
 
-$(".btn-primary").on("click", function(event) {
+$("#delete-this").on("click", function(event) {
   var id = $(this).data("id");
+  console.log("it's reading inside this function!")
   console.log(id);
   console.log("Can I see this?"+ tofu_id );
 
   // Send the DELETE request.
-
-
 $.ajax("/tofu/" + id, {
   type: "DELETE",
   data: id
@@ -62,6 +61,17 @@ $.ajax("/tofu/" + id, {
 
 })
 
-function myFunction(){
-  console.log("You clicked here")
+function myFunction(id){
+  console.log("You clicked here" +id)
+  $.ajax("/tofu/:" + id, {
+    type: "DELETE",
+    data: id
+  }).then(
+    function() {
+      console.log("deleted tasty food", id);
+      // Reload the page to get the updated list
+      location.reload();
+    }
+  );
+
 }

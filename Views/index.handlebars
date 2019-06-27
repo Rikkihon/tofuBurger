@@ -29,16 +29,14 @@
 			  {{#each tofu_data}}
 			  	{{#if this.devoured}}
 			  		<div class="food" type="text"> {{this.tofu_name}}
-						  <data-id="{{this.id}}"> ID </data-id>
-				    <button onclick="delete-this" id="delete-this" class="btn-primary">Delete</button>
+						  <data-id="{{this.id}}">
+				    <button onclick="myFunction({{this.id}})" id={{this.id}} class="btn-primary">Delete</button></data-id>
                     </div>
 				{{/if}}
 			  {{/each}}
 		</div>
 	</div>
 </div>
-
- <button onclick="myFunction()" id="delete" class="btn-primary">Delete</button>	
 
 <div class="container">
 	<div class="row">

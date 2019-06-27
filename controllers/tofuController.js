@@ -46,8 +46,8 @@ router.put("/tofu/:id", function(req, res) {
 //   };
 // });
     
-router.delete('/tofu' +'/:id', function(req,res) {
-  console.log(req.params);
+router.delete('/tofu' +'/:id',(req,res)=> {
+  console.log(req.params.id);
   item.remove({
       _id: req.params.id
   }, function(err) {
