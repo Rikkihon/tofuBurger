@@ -4,20 +4,22 @@ $(document).ready(function() {
     event.preventDefault();
 
     var tofu_id = $(this).children(".tofu_id").val();
+    console.log("script line 7, what is the tofu id" + tofu_id);
     
     $.ajax({
       method: "PUT",
       url: "/tofu/" + tofu_id
     }).then(function(data) {
+      console.log("this is the data variable" + data)
+      console.log("this is the Url it used" + url)
       // reload page to see devoured in proper column
-      location.reload();
+      //location.reload();
     });
 
   });
 });
 
   $(".devour-form").on("submit", function(event) {
-  //was on submit, but I changed it
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
@@ -32,31 +34,34 @@ $(document).ready(function() {
       data: newTofu
     }).then(
       function() {
-        console.log("created new tofu");
         // Reload the page to get the updated list
         location.reload();
       }
   
   )
 
-
-
-$("#delete-button").on("click", function(event) {
+$(".btn-primary").on("click", function(event) {
   var id = $(this).data("id");
-
-console.log("Can I see this?"+ id );
+  console.log(id);
+  console.log("Can I see this?"+ tofu_id );
 
   // Send the DELETE request.
 
-  $.ajax("/api/tofu/" + id, {
-    type: "DELETE",
-    data: id
-  }).then(
-    function() {
-      console.log("deleted tasty food", id);
-      // Reload the page to get the updated list
-      location.reload();
-    }
-  );
- });
-});
+
+$.ajax("/tofu/" + id, {
+  type: "DELETE",
+  data: id
+}).then(
+  function() {
+    console.log("deleted tasty food", id);
+    // Reload the page to get the updated list
+    location.reload();
+  }
+);
+})
+
+})
+
+function myFunction(){
+  console.log("You clicked here")
+}

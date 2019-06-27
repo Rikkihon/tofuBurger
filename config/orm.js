@@ -33,6 +33,7 @@ var orm = {
       cb(result);
     });
   },
+  
   // vals is an array of values that we want to save to cols
   // cols are the columns we want to insert the values into
   create: function(table, cols, vals, cb) {
@@ -74,10 +75,10 @@ var orm = {
     });
   },
 
-  delete: function(id, cb) {
+  delete: function(table, cb) {
     console.log("You got here");
     console.log("This should show you the id " + id);
-    let queryString = `DELETE FROM tofu WHERE id=${id}`  ;
+    var queryString = "DELETE FROM `tofu_db' WHERE id=${id}";
     
     
     connection.query(queryString, function(err, result) {

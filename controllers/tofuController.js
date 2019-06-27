@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var tofu = require("../models/tofu.js");
 
+var schema
 // get route -> index
 router.get("/", function(req, res) {
   res.redirect("/tofu");
@@ -11,6 +12,7 @@ router.get("/tofu", function(req, res) {
   // express callback response
   tofu.all(function(tofuData) { 
     res.render("index", { tofu_data: tofuData });
+    //console.log(tofuData)
   });
 });
 
@@ -27,6 +29,7 @@ router.post("/api/tofu/create", function(req, res) {
 });
 
 // put route -> back to index
+//self, try post here 
 router.put("/tofu/:id", function(req, res) {
   tofu.update(req.params.id, function(result) { 
     console.log("the result is: " + result);
@@ -34,16 +37,33 @@ router.put("/tofu/:id", function(req, res) {
   });
 });
 
-
-router.delete("/tofu/:id", function(req, res) {
-  console.log("This is req.params.id" + req.params.id);
-  tofu.delete(req.params.id), function(result){
-    console.log(result);
-    res.redirect("/")
-  };
-});
+//This is old code - make a better delete
+// router.delete("api/tofu/delete:id", function(req, res) {
+//   console.log(req.params)
+//   tofu.delete(req.params.id), function(result){
+//     console.log("the delete result is " + result);
+//     res.redirect("/")
+//   };
+// });
     
-  
+router.delete('/tofu' +'/:id', function(req,res) {
+  console.log(req.params);
+  item.remove({
+      _id: req.params.id
+  }, function(err) {
+      if(err) {
+          res.header("Access-Control-Allow-Headers", "Authorization, Origin, X-Requested-With, Content-Type, Accept");
+          res.header("Access-Control-Allow-Methods", "PATCH, POST, GET, PUT, DELETE, OPTIONS");
+          res.header("Access-Control-Allow-Methods", "POST, GET, DELETE");
+          res.header("Access-Control-Allow-Credentials", "true");
+          return res.send(err);
+      } else {
+          console.log("successfully deleted")
+      }
+  })
+})
+
+
 
 
 module.exports = router;

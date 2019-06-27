@@ -1,5 +1,5 @@
-let express = require("express");
-let bodyParser = require("body-parser");
+var express = require("express");
+var bodyParser = require("body-parser");
 
 
 var PORT = process.env.PORT || 3000;
@@ -10,7 +10,7 @@ app.use(express.static("public"));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
-// parse application/json
+//parse application/json
 app.use(bodyParser.json());
 
 
