@@ -76,10 +76,9 @@ var orm = {
   },
 
   delete: function(table, cb) {
-    console.log("You got here");
-    console.log("This should show you the id " + id);
-    var queryString = "DELETE FROM `tofu_db' WHERE id=${id}";
-    
+    console.log("You got here inside the ORM");
+     
+    var queryString = "DELETE FROM `tofu_db' WHERE id=" + (objToSql(objColVals));
     
     connection.query(queryString, function(err, result) {
       if (err) throw err;

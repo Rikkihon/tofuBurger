@@ -23,7 +23,7 @@ router.post("/api/tofu/create", function(req, res) {
   tofu.create(req.body.tofu_name, function(result) {
     // wrapper for orm.js that using MySQL insert callback will return a log to console,
     // render back to index with handle
-    console.log(result);
+    console.log("the result 1 is " + JSON.stringify(result));
     res.redirect("/");
   });
 });
@@ -32,7 +32,7 @@ router.post("/api/tofu/create", function(req, res) {
 //self, try post here 
 router.put("/tofu/:id", function(req, res) {
   tofu.update(req.params.id, function(result) { 
-    console.log("the result is: " + result);
+    console.log("the result is: " + JSON.stringify(result));
     res.sendStatus(200);
   });
 });
@@ -42,9 +42,7 @@ router.delete("/tofu/:id",(req,res)=> {
   console.log("req.params.id" + req.params.id);
   console.log("You got here!")
   res.sendStatus(200);
-  item.remove({
-      _id: req.params.id
-  }, function(err) {
+  tofu.delete("delete from `tofu` where id = " + req.params.id), function(result){(err)
       if(err) {
           res.header("Access-Control-Allow-Headers", "Authorization, Origin, X-Requested-With, Content-Type, Accept");
           res.header("Access-Control-Allow-Methods", "PATCH, POST, GET, PUT, DELETE, OPTIONS");
@@ -54,9 +52,8 @@ router.delete("/tofu/:id",(req,res)=> {
       } else {
           console.log("successfully deleted")
       }
-  })
-})
-
+  }
+});
 
 
 
