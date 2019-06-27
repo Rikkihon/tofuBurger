@@ -37,17 +37,11 @@ router.put("/tofu/:id", function(req, res) {
   });
 });
 
-//This is old code - make a better delete
-// router.delete("api/tofu/delete:id", function(req, res) {
-//   console.log(req.params)
-//   tofu.delete(req.params.id), function(result){
-//     console.log("the delete result is " + result);
-//     res.redirect("/")
-//   };
-// });
     
-router.delete('/tofu' +'/:id',(req,res)=> {
-  console.log(req.params.id);
+router.delete("/tofu/:id",(req,res)=> {
+  console.log("req.params.id" + req.params.id);
+  console.log("You got here!")
+  res.sendStatus(200);
   item.remove({
       _id: req.params.id
   }, function(err) {

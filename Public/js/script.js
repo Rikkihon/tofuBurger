@@ -26,7 +26,7 @@ $(document).ready(function() {
     var newTofu = {
       tofu_name: $("#ca").val().trim()
     };
-    console.log(newTofu)
+    //console.log(newTofu)
 
     //Send the POST request.
     $.ajax("/api/tofu/create", {
@@ -63,6 +63,7 @@ $.ajax("/tofu/" + id, {
 
 function myFunction(id){
   console.log("You clicked here" +id)
+  sleep (100)
   $.ajax("/tofu/:" + id, {
     type: "DELETE",
     data: id
