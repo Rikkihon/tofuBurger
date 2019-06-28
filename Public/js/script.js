@@ -13,7 +13,7 @@ $(document).ready(function() {
       console.log("this is the data variable" + data)
       console.log("this is the Url it used" + url)
       // reload page to see devoured in proper column
-      //location.reload();
+      location.reload();
     });
 
   });

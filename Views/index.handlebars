@@ -28,10 +28,14 @@
 		<div class="col-md-6 text-center" class="task"></div>
 			  {{#each tofu_data}}
 			  	{{#if this.devoured}}
+				  <ol>
 			  		<div class="food" type="text"> {{this.tofu_name}}
+						 
 						  <data-id="{{this.id}}">
 				    <button onclick="myFunction({{this.id}})" id={{this.id}} class="btn-primary">Delete</button></data-id>
+					</ol>
                     </div>
+					
 				{{/if}}
 			  {{/each}}
 		</div>
