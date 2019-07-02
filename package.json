@@ -1,5 +1,5 @@
 {
-  "name": "Tofu Eater",
+  "name": "Tofu Burger",
   "version": "1.0.0",
   "description": "-Node8.1.11 \r -Express \r -MySQL \r -Handlebars \r -Jquery",
   "main": "server.js",

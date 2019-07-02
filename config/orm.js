@@ -33,6 +33,7 @@ var orm = {
       cb(result);
     });
   },
+  
   // vals is an array of values that we want to save to cols
   // cols are the columns we want to insert the values into
   create: function(table, cols, vals, cb) {
@@ -44,8 +45,14 @@ var orm = {
     queryString += "VALUES (";
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
+<<<<<<< HEAD
 
     console.log("The create querySTring is: " , queryString);
+=======
+    
+    console.log("table" + table);
+    console.log("queryString" + queryString);
+>>>>>>> 4f6cfb0c2013f1ca58a8c1c73ab4cab77b3a50fc
 
     connection.query(queryString, vals, function(err, result) {
       if (err) {
@@ -72,6 +79,7 @@ var orm = {
       cb(result);
     });
   },
+<<<<<<< HEAD
     delete: function(table, cols, vals, cb){
     //delete: function(table, queryString, cb) {
     console.log("You got here inside of the ORM delete ");
@@ -80,6 +88,13 @@ var orm = {
     var queryString = `DELETE FROM `+ `tofu_db`+`.`+`tofu ` + `WHERE` +` id`+ `=` + `'144'`  ;
     console.log("The queryString is " + queryString)
     
+=======
+
+  delete: function(table, cb) {
+    console.log("You got here inside the ORM");
+     
+    var queryString = "DELETE FROM `tofu_db' WHERE id=" + (objToSql(objColVals));
+>>>>>>> 4f6cfb0c2013f1ca58a8c1c73ab4cab77b3a50fc
     
     connection.query(queryString, vals, function(err, result) {
       if (err){ 

@@ -4,63 +4,74 @@ $(document).ready(function() {
     event.preventDefault();
 
     var tofu_id = $(this).children(".tofu_id").val();
+    console.log("script line 7, what is the tofu id" + tofu_id);
     
     $.ajax({
       method: "PUT",
       url: "/tofu/" + tofu_id
     }).then(function(data) {
+      console.log("this is the data variable" + data)
+      console.log("this is the Url it used" + url)
       // reload page to see devoured in proper column
-      location.reload();
+      //location.reload();
     });
 
   });
 });
 
-//   $(".devour-form").on("click", function(event) {
-//   //was on submit, but I changed it
-//     // Make sure to preventDefault on a submit event.
-//     event.preventDefault();
+  $(".devour-form").on("submit", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
 
-//     var newTofu = {
-//       tofu_name: $("#ca").val().trim()
-     
-//     };
+    var newTofu = {
+      tofu_name: $("#ca").val().trim()
+    };
+    //console.log(newTofu)
 
-    // Send the POST request.
-  //   $.ajax("/api/tofu", {
-  //     type: "POST",
-  //     data: newTofu
-  //   }).then(
-  //     function() {
-  //       console.log("created new tofu");
-  //       // Reload the page to get the updated list
-  //       location.reload();
-  //     }
-  
-  // )
+    //Send the POST request.
+    $.ajax("/api/tofu/create", {
+      type: "POST",
+      data: newTofu
+    }).then(
+      function() {
+        // Reload the page to get the updated list
+        location.reload();
+      })
+    })
+/* $(".button-primary").on("click", function(event) {
+ // var id = $(this).data("id");
+  console.log("it's reading inside this function!")
+  console.log("Can I see this?"+ tofu_id );
 
-
-
-$(".delete").on("click", function(event) {
-  var id = $(this).data("id");
-console.log("Can I see this?");
   // Send the DELETE request.
+<<<<<<< HEAD
   $.ajax("/api/tofu/" + id, {
     type: "DELETE",
     timeout: 150
+=======
+$.ajax("/tofu/:", {
+  type: "DELETE"
+}).then(
+  function() {
+    console.log("deleted tasty food", id);
+    // Reload the page to get the updated list
+    location.reload();
+  }
+);
+}); */
+
+function myFunction(id){
+  console.log("You clicked here")
+ 
+  $.ajax("/tofu/:", {
+    type: "DELETE"
+>>>>>>> 4f6cfb0c2013f1ca58a8c1c73ab4cab77b3a50fc
   }).then(
     function() {
       console.log("deleted tasty food", id);
       // Reload the page to get the updated list
       location.reload();
     }
-  );
-});
-
-
-
-
-
-
-
-
+  )
+}
+ 
