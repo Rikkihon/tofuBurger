@@ -46,7 +46,8 @@ $(".delete").on("click", function(event) {
 console.log("Can I see this?");
   // Send the DELETE request.
   $.ajax("/api/tofu/" + id, {
-    type: "DELETE"
+    type: "DELETE",
+    timeout: 150
   }).then(
     function() {
       console.log("deleted tasty food", id);

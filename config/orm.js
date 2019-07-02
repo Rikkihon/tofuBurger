@@ -25,7 +25,7 @@ function objToSql(ob) {
 var orm = {
   all: function(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
-    console.log(tableInput);
+    console.log("the table input is " ,tableInput);
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -45,7 +45,7 @@ var orm = {
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
 
-    console.log(queryString);
+    console.log("The create querySTring is: " , queryString);
 
     connection.query(queryString, vals, function(err, result) {
       if (err) {
@@ -72,16 +72,20 @@ var orm = {
       cb(result);
     });
   },
-// need to ask the tutor about this g
-  delete: function(id, cb) {
-    console.log("You got here");
-    console.log("This should show you the id " + id);
-    var queryString = `DELETE FROM tofu WHERE id=${id}`  ;
+    delete: function(table, cols, vals, cb){
+    //delete: function(table, queryString, cb) {
+    console.log("You got here inside of the ORM delete ");
+    //console.log("This should show you the id from the ORM " + cols.toString());
+    //var queryString = `DELETE FROM tofu WHERE id=${id}`  ;
+    var queryString = `DELETE FROM `+ `tofu_db`+`.`+`tofu ` + `WHERE` +` id`+ `=` + `'144'`  ;
+    console.log("The queryString is " + queryString)
     
     
-    connection.query(queryString, function(err, result) {
-      if (err) throw err;
-      console.log("This should be the errors", err);
+    connection.query(queryString, vals, function(err, result) {
+      if (err){ 
+        throw err;
+      }
+      console.log("the error is + " , err);
      cb(result);
     });
   }
