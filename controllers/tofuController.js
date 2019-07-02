@@ -37,8 +37,6 @@ router.put("/tofu/:id", function(req, res) {
   });
 });
 
-<<<<<<< HEAD
-
 router.delete("/api/tofu/:id", function(req, res) {
   console.log("This is req.params.id from the controller" + req.params.id);
   tofu.delete(req.params.id, function(result){
@@ -47,8 +45,6 @@ router.delete("/api/tofu/:id", function(req, res) {
     
   });
 });
-=======
->>>>>>> 4f6cfb0c2013f1ca58a8c1c73ab4cab77b3a50fc
     
 router.delete("/tofu/:id",(req,res)=> {
   console.log("req.params.id" + req.params.id);

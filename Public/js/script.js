@@ -38,34 +38,16 @@ $(document).ready(function() {
         location.reload();
       })
     })
-/* $(".button-primary").on("click", function(event) {
+  
+    $(".button-primary").on("click", function(event) {
  // var id = $(this).data("id");
   console.log("it's reading inside this function!")
   console.log("Can I see this?"+ tofu_id );
 
   // Send the DELETE request.
-<<<<<<< HEAD
   $.ajax("/api/tofu/" + id, {
     type: "DELETE",
     timeout: 150
-=======
-$.ajax("/tofu/:", {
-  type: "DELETE"
-}).then(
-  function() {
-    console.log("deleted tasty food", id);
-    // Reload the page to get the updated list
-    location.reload();
-  }
-);
-}); */
-
-function myFunction(id){
-  console.log("You clicked here")
- 
-  $.ajax("/tofu/:", {
-    type: "DELETE"
->>>>>>> 4f6cfb0c2013f1ca58a8c1c73ab4cab77b3a50fc
   }).then(
     function() {
       console.log("deleted tasty food", id);
@@ -73,5 +55,4 @@ function myFunction(id){
       location.reload();
     }
   )
-}
- 
+    })
