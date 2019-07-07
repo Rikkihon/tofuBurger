@@ -22,10 +22,12 @@ var tofu = {
   delete: function(id, cb){
     var deleteString = 'DELETE FROM tofu WHERE id =' + id;
 
-    orm.delete(id, function(err, data){
+    orm.delete("tofu", {
+      id, function(err, data){
       if(err) throw err;
       callback(data);
-    });
+    }
+  });
   }
 
 };

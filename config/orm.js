@@ -47,7 +47,6 @@ var orm = {
     queryString += ") ";
 
     console.log("The create querySTring is: " , queryString);
-=======
 
     connection.query(queryString, vals, function(err, result) {
       if (err) {
@@ -79,7 +78,7 @@ var orm = {
     console.log("You got here inside of the ORM delete ");
     //console.log("This should show you the id from the ORM " + cols.toString());
     //var queryString = `DELETE FROM tofu WHERE id=${id}`  ;
-    var queryString = `DELETE FROM `+ `tofu_db`+`.`+`tofu ` + `WHERE` +` id`+ `=` + `'144'`  ;
+    var queryString = `DELETE FROM `+ `tofu_db`+`.`+`tofu ` + `WHERE` +` id`+ `=` + `'123'`  ;
     console.log("The queryString is " + queryString)
     
     
