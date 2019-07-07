@@ -13,7 +13,7 @@ $(document).ready(function() {
       console.log("this is the data variable" + data)
       console.log("this is the Url it used" + url)
       // reload page to see devoured in proper column
-      //location.reload();
+      location.reload();
     });
 
   });
@@ -38,14 +38,16 @@ $(document).ready(function() {
         location.reload();
       })
     })
-  
-    $(".button-primary").on("click", function(event) {
- // var id = $(this).data("id");
+ 
+    $(".btn-primary").on("click", function(event) {
+  // var id = $(this).data("id");
+   var id = {
+    tofu_name: $("#btn-primary").val()
+  };
   console.log("it's reading inside this function!")
-  console.log("Can I see this?"+ tofu_id );
-
-  // Send the DELETE request.
-  $.ajax("/api/tofu/" + id, {
+  console.log("Can I see this?"+ id );
+   // Send the DELETE request.
+  $.ajax("/tofu/" + id, {
     type: "DELETE",
     timeout: 150
   }).then(
@@ -56,3 +58,4 @@ $(document).ready(function() {
     }
   )
     })
+  

@@ -37,15 +37,16 @@ router.put("/tofu/:id", function(req, res) {
   });
 });
 
-router.delete("/api/tofu/:id", function(req, res) {
-  console.log("This is req.params.id from the controller" + req.params.id);
-  tofu.delete(req.params.id, function(result){
-    console.log("This is the result after the delete", + JSON.stringify(result));
-    res.render(result);
+// router.delete("/api/tofu/:id", function(req, res) {
+//   console.log("This is req.params.id from the controller" + req.params.id);
+//   tofu.delete(req.params.id, function(result){
+//     console.log("This is the result after the delete", + JSON.stringify(result));
+//     res.render(result);
     
-  });
-});
-    
+//   });
+// });
+
+//myFunction(id); 
 router.delete("/tofu/:id",(req,res)=> {
   console.log("req.params.id" + req.params.id);
   console.log("You got here!")

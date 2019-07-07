@@ -9,15 +9,15 @@
 			  {{#each tofu_data}}
 			  	{{#unless this.devoured}}
 				<div class="col-md-9 text-center">
-					{{!-- <pre>{{this.id}}. {{this.tofu_name}}
-					</pre> --}}
+					<pre>{{this.id}}. {{this.tofu_name}}
+					</pre>
 				  		{{this.Date}}
 				</div>
 				<div class="col-md-3 text-center">
 					<form class="devour-form button-size">
 						<input class="tofu_id"  style="hidden" value={{this.id}}><br>
 						<button type="submit" id="ca" class="btn btn-default">Devour it</button>
-					
+				
 					</form>
 				</div>
 				{{/unless}}
@@ -25,17 +25,20 @@
 			</div>
 		</div>
 
-		<div class="col-md-6 text-center" class="task"></div>
+		<div class="col-md-6 text-center" class="task">
+		 <data-id="{{this.id}}">
 			  {{#each tofu_data}}
 			  	{{#if this.devoured}}
+				  
 			  		<div class="food" type="text"> {{this.tofu_name}}
-						  <data-id="{{this.id}}">
-				    <button onclick="myFunction({{this.id}})" id={{this.id}} class="btn-primary">Delete</button></data-id>
+				    <button onclick="{{this.id}}" id={{this.id}} class="btn-primary">Delete</button>
                     </div>
 				{{/if}}
 			  {{/each}}
+			  </data-id>
 		</div>
 	</div>
+</div>
 </div>
 
 <div class="container">

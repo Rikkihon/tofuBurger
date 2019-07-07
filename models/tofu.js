@@ -19,6 +19,7 @@ var tofu = {
       devoured: true
     }, condition, cb);
   },
+  
   delete: function(id, cb){
     var deleteString = 'DELETE FROM tofu WHERE id =' + id;
 

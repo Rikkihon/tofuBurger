@@ -78,7 +78,7 @@ var orm = {
     console.log("You got here inside of the ORM delete ");
     //console.log("This should show you the id from the ORM " + cols.toString());
     //var queryString = `DELETE FROM tofu WHERE id=${id}`  ;
-    var queryString = `DELETE FROM `+ `tofu_db`+`.`+`tofu ` + `WHERE` +` id`+ `=` + `'123'`  ;
+    var queryString = `DELETE FROM `+ `tofu_db`+`.`+`tofu ` + `WHERE` +` id`+ `=` + `'149'`  ;
     console.log("The queryString is " + queryString)
     
     
