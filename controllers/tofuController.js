@@ -38,24 +38,23 @@ router.put("/tofu/:id", function(req, res) {
 });
 
 router.delete("/tofu/:id",(req,res)=> {
-  //console.log("req.params.id" + JSON.stringify(req.params.id));
+  console.log("req.params.id" + JSON.stringify(req.params.id));
   console.log("You got here!")
-  res.sendStatus(200);
+  //res.sendStatus(200);
   //tofu.delete(req.params.id), function(result){
   //tofu.delete(req.params.id, "dummy1", "dummy2", "dummy3", function(result){
-    tofu.delete(req.body.tofu_name, function(result) {
-      if(err) {
+    tofu.delete(req.params.id, function(result) {
+      /* if(err) {
           res.header("Access-Control-Allow-Headers", "Authorization, Origin, X-Requested-With, Content-Type, Accept");
           res.header("Access-Control-Allow-Methods", "PATCH, POST, GET, PUT, DELETE, OPTIONS");
           res.header("Access-Control-Allow-Methods", "POST, GET, DELETE");
           res.header("Access-Control-Allow-Credentials", "true");
           return res.send(err);
-      } else {
+      } else { */
           console.log("successfully deleted")
-      }
-  });
-});
+      });
 
+    })
 
 
 module.exports = router;

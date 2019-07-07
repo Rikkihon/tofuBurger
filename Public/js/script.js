@@ -4,7 +4,7 @@ $(document).ready(function() {
     event.preventDefault();
 
     var tofu_id = $(this).children(".tofu_id").val();
-    console.log("script line 7, what is the tofu id" + tofu_id);
+    console.log("script line 7, what is the tofu id " + tofu_id);
     
     $.ajax({
       method: "PUT",
@@ -40,19 +40,20 @@ $(document).ready(function() {
     })
  
     $(".btn-primary").on("click", function(event) {
-  // var id = $(this).data("id");
-   var id = {
-    tofu_name: $("#btn-primary").val()
+  var id = $(this).data("id");
+  var tofu_id = $(this).children(".btn-primary").val();
+   var tofu_id2 = {
+    tofu_name: $(".btn-primary").val()
   };
   console.log("it's reading inside this function!")
-  console.log("Can I see this?"+ id );
+  console.log("Can I see this?"+ id, id2);
    // Send the DELETE request.
-  $.ajax("/tofu/" + id, {
+  $.ajax("/tofu/" + tofu_id, {cl
     type: "DELETE",
     timeout: 1500
   }).then(
     function() {
-      console.log("deleted tasty food", id);
+      console.log("deleted tasty food", tofu_name, tofu_id, id);
       // Reload the page to get the updated list
       location.reload();
     }

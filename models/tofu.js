@@ -21,7 +21,7 @@ var tofu = {
   },
 
   delete: function(id, callback){
-    var deleteString = 'DELETE FROM tofu WHERE id =' + id;
+  //  var deleteString = 'DELETE FROM tofu WHERE id =' + id;
 
     orm.delete("tofu", {
       id, function(err, data){

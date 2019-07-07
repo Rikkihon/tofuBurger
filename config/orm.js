@@ -77,19 +77,19 @@ var orm = {
     console.log("You got here inside of the ORM delete ");
     //var queryStringcols = objToSql(objColVals);
 
-    console.log("This should show you the id from the ORM " + objToSql(objColVals));
+    console.log("This should show you the id from the ORM " + objColVals);
 
     //var queryString = `DELETE FROM tofu_db WHERE id=${id}`  ;
-    var queryString = `DELETE FROM `+ `tofu_db`+`.`+`tofu ` + `WHERE` + objToSql(objColVals)  ;
+    var queryString = `DELETE FROM `+ `tofu_db`+`.`+`tofu ` + `WHERE` + ` `+(objColVals)  ;
     console.log("The queryString is " + queryString);
     
     
-    connection.query(queryString, vals, function(err, result) {
+    connection.query(queryString, function(err, result) {
       if (err){ 
         throw err;
       }
       console.log("the error is + " , err);
-     cb(JSON.stringify(result));
+     //cb(JSON.stringify(result));
     });
   }
 }
