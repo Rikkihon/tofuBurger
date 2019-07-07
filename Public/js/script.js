@@ -49,7 +49,7 @@ $(document).ready(function() {
    // Send the DELETE request.
   $.ajax("/tofu/" + id, {
     type: "DELETE",
-    timeout: 150
+    timeout: 1500
   }).then(
     function() {
       console.log("deleted tasty food", id);

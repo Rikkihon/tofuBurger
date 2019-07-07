@@ -34,7 +34,7 @@ var orm = {
     });
   },
   
-  // vals is an array of values that we want to save to cols
+  // vals is an array of values that we want to save to columnsbi
   // cols are the columns we want to insert the values into
   create: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
@@ -73,13 +73,15 @@ var orm = {
       cb(result);
     });
   },
-    delete: function(table, cols, vals, cb){
-    //delete: function(table, queryString, cb) {
+    delete: function(table, objColVals){
     console.log("You got here inside of the ORM delete ");
-    //console.log("This should show you the id from the ORM " + cols.toString());
-    //var queryString = `DELETE FROM tofu WHERE id=${id}`  ;
-    var queryString = `DELETE FROM `+ `tofu_db`+`.`+`tofu ` + `WHERE` +` id`+ `=` + `'149'`  ;
-    console.log("The queryString is " + queryString)
+    //var queryStringcols = objToSql(objColVals);
+
+    console.log("This should show you the id from the ORM " + objToSql(objColVals));
+
+    //var queryString = `DELETE FROM tofu_db WHERE id=${id}`  ;
+    var queryString = `DELETE FROM `+ `tofu_db`+`.`+`tofu ` + `WHERE` + objToSql(objColVals)  ;
+    console.log("The queryString is " + queryString);
     
     
     connection.query(queryString, vals, function(err, result) {
@@ -87,7 +89,7 @@ var orm = {
         throw err;
       }
       console.log("the error is + " , err);
-     cb(result);
+     cb(JSON.stringify(result));
     });
   }
 }

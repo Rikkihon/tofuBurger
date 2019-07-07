@@ -19,8 +19,8 @@ var tofu = {
       devoured: true
     }, condition, cb);
   },
-  
-  delete: function(id, cb){
+
+  delete: function(id, callback){
     var deleteString = 'DELETE FROM tofu WHERE id =' + id;
 
     orm.delete("tofu", {

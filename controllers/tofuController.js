@@ -37,21 +37,13 @@ router.put("/tofu/:id", function(req, res) {
   });
 });
 
-// router.delete("/api/tofu/:id", function(req, res) {
-//   console.log("This is req.params.id from the controller" + req.params.id);
-//   tofu.delete(req.params.id, function(result){
-//     console.log("This is the result after the delete", + JSON.stringify(result));
-//     res.render(result);
-    
-//   });
-// });
-
-//myFunction(id); 
 router.delete("/tofu/:id",(req,res)=> {
-  console.log("req.params.id" + req.params.id);
+  //console.log("req.params.id" + JSON.stringify(req.params.id));
   console.log("You got here!")
   res.sendStatus(200);
-  tofu.delete("delete from `tofu` where id = " + req.params.id), function(result){(err)
+  //tofu.delete(req.params.id), function(result){
+  //tofu.delete(req.params.id, "dummy1", "dummy2", "dummy3", function(result){
+    tofu.delete(req.body.tofu_name, function(result) {
       if(err) {
           res.header("Access-Control-Allow-Headers", "Authorization, Origin, X-Requested-With, Content-Type, Accept");
           res.header("Access-Control-Allow-Methods", "PATCH, POST, GET, PUT, DELETE, OPTIONS");
@@ -61,7 +53,7 @@ router.delete("/tofu/:id",(req,res)=> {
       } else {
           console.log("successfully deleted")
       }
-  }
+  });
 });
 
 
