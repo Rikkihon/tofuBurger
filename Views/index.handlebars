@@ -26,16 +26,17 @@
 		</div>
 
 		<div class="col-md-6 text-center" class="task">
-		 <data-id="{{this.id}}">
+		 
 			  {{#each tofu_data}}
 			  	{{#if this.devoured}}
-				  
+				  <data-id="{{this.id}}">
 			  		<div class="food" type="text"> {{this.tofu_name}}
-				    <button onclick="{{this.id}}" id={{this.id}} class="btn-primary">Delete</button>
+				    <button onclick="{{this.id}}" id={{this.id}} data-sql-id={{this.id}} class="btn-primary">Delete</button>
                     </div>
+					 </data-id>
 				{{/if}}
 			  {{/each}}
-			  </data-id>
+			 
 		</div>
 	</div>
 </div>

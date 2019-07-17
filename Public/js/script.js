@@ -40,17 +40,25 @@ $(document).ready(function() {
     })
  
     $(".btn-primary").on("click", function(event) {
-  var id = $(this).data("id");
-  var tofu_id = $(this).children(".btn-primary").val();
-   var tofu_id2 = {
-    tofu_name: $(".btn-primary").val()
-  };
-  console.log("it's reading inside this function!")
-  console.log("Can I see this?"+ id, id2);
+      var newTofu = {
+        tofu_name: $(".btn-primary").attr('id').trim()
+        //val is just on inputs, attribute gets the attribute value of any attribute except for more current jquery, which uses props
+        //store data
+      }; //debugger;
+   
+      var newTofu2 = {
+        tofu_name: $(".btn-primary").data('sql-id')
+      }
+
+      console.log("the newTofu is "+ newTofu.tofu_name);
+
+     console.log("the newTofu is "+ newTofu2.tofu_name);
+     console.log("it's reading inside this function!");
+ 
    // Send the DELETE request.
-  $.ajax("/tofu/" + tofu_id, {cl
-    type: "DELETE",
-    timeout: 1500
+  $.ajax("/tofu/" + newTofu2.tofu_name, {
+    method: "DELETE",
+    url: "/api/todos/" + newTofu.tofu_name
   }).then(
     function() {
       console.log("deleted tasty food", tofu_name, tofu_id, id);

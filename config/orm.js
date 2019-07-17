@@ -76,11 +76,12 @@ var orm = {
     delete: function(table, objColVals){
     console.log("You got here inside of the ORM delete ");
     //var queryStringcols = objToSql(objColVals);
-
-    console.log("This should show you the id from the ORM " + objColVals);
+    //console.log("Table input" + noobjColVals.tableInput)
+   // console.log("condition" + objColVals.condition)
+    console.log("This should show you the id from the ORM " + objColVals.id);
 
     //var queryString = `DELETE FROM tofu_db WHERE id=${id}`  ;
-    var queryString = `DELETE FROM `+ `tofu_db`+`.`+`tofu ` + `WHERE` + ` `+(objColVals)  ;
+    var queryString = `DELETE FROM `+ `tofu_db`+`.`+`tofu ` + `WHERE` + `id =`+(objColVals.id)  ;
     console.log("The queryString is " + queryString);
     
     
