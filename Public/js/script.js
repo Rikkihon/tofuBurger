@@ -19,6 +19,10 @@ $(document).ready(function() {
   });
 });
 
+$(".text-enter-button").on("submit", function(event){
+  console.log("You pushed button submit")
+})
+
   $(".devour-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
@@ -31,14 +35,14 @@ $(document).ready(function() {
     //Send the POST request.
     $.ajax("/api/tofu/create", {
       type: "POST",
-      data: newTofu
+      data: newTofu.tofu_name
     }).then(
       function() {
         // Reload the page to get the updated list
-        location.reload();
+        //location.reload();
       })
     })
- 
+  
     $(".btn-primary").on("click", function(event) {
       var newTofu = {
         tofu_name: $(".btn-primary").attr('id').trim()
