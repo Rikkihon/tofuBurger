@@ -25,11 +25,7 @@ function objToSql(ob) {
 var orm = {
   all: function(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
-<<<<<<< HEAD
     console.log("The tableInput is" + tableInput);
-=======
-    console.log("the table input is " ,tableInput);
->>>>>>> d6455b940624662f08e78753aaf44a199f907954
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -78,7 +74,6 @@ var orm = {
     });
   },
     
-    console.log("You got here inside of the ORM delete ");
 
   delete: function(table,cols, num, vals, objColVals, condition, cb) {
     console.log("You got here inside the ORM");
