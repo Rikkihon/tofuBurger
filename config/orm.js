@@ -25,7 +25,7 @@ function objToSql(ob) {
 var orm = {
   all: function(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
-    console.log(tableInput);
+    console.log("The tableInput is" + tableInput);
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -75,15 +75,15 @@ var orm = {
     });
   },
 
-  delete: function(table, cb) {
+  delete: function(table,cols, num, vals, objColVals, condition, cb) {
     console.log("You got here inside the ORM");
      
-    var queryString = "DELETE FROM `tofu_db.tofu' WHERE id=" + (objToSql(cols));
+    var queryString = "DELETE FROM `tofu_db.tofu' WHERE id=" + (objToSql(num)) + ";" +
     
     connection.query(queryString, function(err, result) {
       if (err) throw err;
      cb(result);
-    });
+    })
   }
 }
 

@@ -64,7 +64,7 @@ function myFunction(id){
     function() {
       console.log("deleted tasty food", id);
       // Reload the page to get the updated list
-      location.reload();
+      //location.reload();
     }
   )
 }
