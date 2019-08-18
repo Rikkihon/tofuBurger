@@ -4,7 +4,7 @@ $(document).ready(function() {
     event.preventDefault();
 
     var tofu_id = $(this).children(".tofu_id").val();
-    console.log("script line 7, what is the tofu id" + tofu_id);
+    console.log("script line 7, what is the tofu id " + tofu_id);
     
     $.ajax({
       method: "PUT",
@@ -19,6 +19,10 @@ $(document).ready(function() {
   });
 });
 
+$(".text-enter-button").on("submit", function(event){
+  console.log("You pushed button submit")
+})
+
   $(".devour-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
@@ -31,41 +35,40 @@ $(document).ready(function() {
     //Send the POST request.
     $.ajax("/api/tofu/create", {
       type: "POST",
-      data: newTofu
+      data: newTofu.tofu_name
     }).then(
       function() {
         // Reload the page to get the updated list
-        location.reload();
+        //location.reload();
       })
     })
-/* $(".button-primary").on("click", function(event) {
- // var id = $(this).data("id");
-  console.log("it's reading inside this function!")
-  console.log("Can I see this?"+ tofu_id );
+  
+    $(".btn-primary").on("click", function(event) {
+      var newTofu = {
+        tofu_name: $(".btn-primary").attr('id').trim()
+        //val is just on inputs, attribute gets the attribute value of any attribute except for more current jquery, which uses props
+        //store data
+      }; //debugger;
+   
+      var newTofu2 = {
+        tofu_name: $(".btn-primary").data('sql-id')
+      }
 
-  // Send the DELETE request.
-$.ajax("/tofu/:", {
-  type: "DELETE"
-}).then(
-  function() {
-    console.log("deleted tasty food", id);
-    // Reload the page to get the updated list
-    location.reload();
-  }
-);
-}); */
+      console.log("the newTofu is "+ newTofu.tofu_name);
 
-function myFunction(id){
-  console.log("You clicked here")
+     console.log("the newTofu is "+ newTofu2.tofu_name);
+     console.log("it's reading inside this function!");
  
-  $.ajax("/tofu/:", {
-    type: "DELETE"
+   // Send the DELETE request.
+  $.ajax("/tofu/" + newTofu2.tofu_name, {
+    method: "DELETE",
+    url: "/api/todos/" + newTofu.tofu_name
   }).then(
     function() {
-      console.log("deleted tasty food", id);
+      console.log("deleted tasty food", tofu_name, tofu_id, id);
       // Reload the page to get the updated list
       //location.reload();
     }
   )
-}
- 
+    })
+  

@@ -25,7 +25,11 @@ function objToSql(ob) {
 var orm = {
   all: function(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
+<<<<<<< HEAD
     console.log("The tableInput is" + tableInput);
+=======
+    console.log("the table input is " ,tableInput);
+>>>>>>> d6455b940624662f08e78753aaf44a199f907954
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -34,7 +38,7 @@ var orm = {
     });
   },
   
-  // vals is an array of values that we want to save to cols
+  // vals is an array of values that we want to save to columnsbi
   // cols are the columns we want to insert the values into
   create: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
@@ -45,9 +49,8 @@ var orm = {
     queryString += "VALUES (";
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
-    
-    console.log("table" + table);
-    console.log("queryString" + queryString);
+
+    console.log("The create querySTring is: " , queryString);
 
     connection.query(queryString, vals, function(err, result) {
       if (err) {
@@ -74,6 +77,8 @@ var orm = {
       cb(result);
     });
   },
+    
+    console.log("You got here inside of the ORM delete ");
 
   delete: function(table,cols, num, vals, objColVals, condition, cb) {
     console.log("You got here inside the ORM");
@@ -83,7 +88,7 @@ var orm = {
     connection.query(queryString, function(err, result) {
       if (err) throw err;
      cb(result);
-    })
+    });
   }
 }
 

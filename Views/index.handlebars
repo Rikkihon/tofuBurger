@@ -9,25 +9,28 @@
 			  {{#each tofu_data}}
 			  	{{#unless this.devoured}}
 				<div class="col-md-9 text-center">
-					{{!-- <pre>{{this.id}}. {{this.tofu_name}}
-					</pre> --}}
+					<pre>{{this.id}}. {{this.tofu_name}}
+					</pre>
 				  		{{this.Date}}
 				</div>
+				{{/unless}}
+			  {{/each}}
 				<div class="col-md-3 text-center">
 					<form class="devour-form button-size">
 						<input class="tofu_id"  style="hidden" value={{this.id}}><br>
 						<button type="submit" id="ca" class="btn btn-default">Devour it</button>
-					
+				
 					</form>
 				</div>
-				{{/unless}}
-			  {{/each}}
+				
 			</div>
 		</div>
 
-		<div class="col-md-6 text-center" class="task"></div>
+		<div class="col-md-6 text-center" class="task">
+		 
 			  {{#each tofu_data}}
 			  	{{#if this.devoured}}
+<<<<<<< HEAD
 				  <ol>
 			  		<div class="food" type="text"> {{this.tofu_name}}
 						 
@@ -36,10 +39,19 @@
 					</ol>
                     </div>
 					
+=======
+				  <data-id="{{this.id}}">
+			  		<div class="food" type="text"> {{this.tofu_name}}
+				    <button onclick="{{this.id}}" id={{this.id}} data-sql-id={{this.id}} class="btn-primary">Delete</button>
+                    </div>
+					 </data-id>
+>>>>>>> d6455b940624662f08e78753aaf44a199f907954
 				{{/if}}
 			  {{/each}}
+			 
 		</div>
 	</div>
+</div>
 </div>
 
 <div class="container">
